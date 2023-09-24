@@ -14,6 +14,32 @@ body {
 :root {
     --primary: #131369;
     --secondary: #00a2ff;
+    background-color: var(--primary);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.left-wrapper {
+    background-color: #fff;
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    z-index: -1;
 }
 
 .container {
@@ -23,6 +49,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
+    overflow: hidden;
     /* grid-template-areas: "left left left right right right right right right right"; */
 }
 
@@ -41,7 +68,7 @@ body {
 }
 
 .avatar {
-    width: 350px;
+    width: 300px;
     position: absolute;
     right: -50px;
     top: 50%;
@@ -52,20 +79,31 @@ body {
 
 .right {
     background-color: var(--primary);
+    text-align: right;
     /* grid-area: right; */
+    height: 100%;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     padding: 32px 64px;
     grid-column: span 7;
+    overflow: hidden;
+}
+
+.nav-wrapper {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 12px;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 64px;
     list-style-type: none;
+    /* flex-wrap: wrap; */
 }
 
 .nav__link a {
@@ -80,7 +118,6 @@ body {
 
 .info {
     margin-top: 150px;
-    text-align: right;
     max-width: 90%;
 }
 
@@ -109,4 +146,28 @@ button {
     color: white;
     font-weight: 500;
     box-shadow: 4px 4px 8px var(--secondary);
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        display: block;
+    }
+    .left {
+        display: none;
+    }
+    .right {
+        align-items: flex-start;
+        text-align: left;
+        padding: 32px 20px;
+    }
+    .info {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .right {
+        align-items: center;
+        text-align: center;
+    }
 }
