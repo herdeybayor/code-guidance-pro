@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#a {
+    background: red;
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+/* #b {
+  background: yellow;
+  width: 100px;
+  height: 100px;
+  visibility: hidden;
+} */
+
+#c {
+    background: green;
+    width: 100px;
+    height: 100px;
+}
